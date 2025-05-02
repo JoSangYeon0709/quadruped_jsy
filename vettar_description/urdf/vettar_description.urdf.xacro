@@ -1,0 +1,1698 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="vettar">
+  <xacro:arg name="simulation_mode" default="false"/>
+  <xacro:property name="is_sim" value="$(arg simulation_mode)"/>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="2.35110972218733E-08 -4.49082036696469E-08 -0.000139979272181373"
+        rpy="0 0 0" />
+      <mass
+        value="0.396679023415945" />
+      <inertia
+        ixx="0.000363746686904449"
+        ixy="-9.76609071073347E-09"
+        ixz="3.48480589918157E-12"
+        iyy="0.00104522627187434"
+        iyz="-4.57941235308133E-10"
+        izz="0.0013581782694226" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="shoulder_F_L">
+    <inertial>
+      <origin
+        xyz="0.0466819869554319 0.00398419067271394 0.00997792256330394"
+        rpy="0 0 0" />
+      <mass
+        value="0.119203480699899" />
+      <inertia
+        ixx="4.49008647458163E-05"
+        ixy="-2.02804766608705E-08"
+        ixz="-3.45414265562375E-06"
+        iyy="4.39339436760174E-05"
+        iyz="-3.33916966792789E-08"
+        izz="2.39881913565821E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/shoulder_F_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/shoulder_F_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F_L_0"
+    type="revolute">
+    <origin
+      xyz="0.04685 0.05455 -5E-05"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="shoulder_F_L" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="thighs_F_L">
+    <inertial>
+      <origin
+        xyz="0.0307867646905471 -0.000461376921627524 -0.030805340221158"
+        rpy="0 0 0" />
+      <mass
+        value="0.0272931996215248" />
+      <inertia
+        ixx="1.40238605835704E-05"
+        ixy="-2.68315513109657E-07"
+        ixz="1.22583414772541E-05"
+        iyy="2.63265482672728E-05"
+        iyz="2.68517605735526E-07"
+        izz="1.39166912790042E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/thighs_F_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/thighs_F_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F_L_1"
+    type="revolute">
+    <origin
+      xyz="0.0322 0.0423 0"
+      rpy="0 0 0" />
+    <parent
+      link="shoulder_F_L" />
+    <child
+      link="thighs_F_L" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="calf_F_L">
+    <inertial>
+      <origin
+        xyz="0.0101406960018604 5.12585711612695E-05 -0.0334060796974647"
+        rpy="0 0 0" />
+      <mass
+        value="0.0172535804140555" />
+      <inertia
+        ixx="1.77604626883055E-05"
+        ixy="8.61708375886723E-09"
+        ixz="4.41637781525403E-06"
+        iyy="1.92140238293717E-05"
+        iyz="-2.87034102494065E-08"
+        izz="1.71187663900808E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_F_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_F_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thighs_to_calf_F_L"
+    type="continuous">
+    <origin
+      xyz="0.070711 0 -0.070711"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="thighs_F_L" />
+    <child
+      link="calf_F_L" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="servo_arm_F_L">
+    <inertial>
+      <origin
+        xyz="0 1.38777878078145E-17 0.0105381418028458"
+        rpy="0 0 0" />
+      <mass
+        value="0.000975344106993151" />
+      <inertia
+        ixx="7.54540735330726E-08"
+        ixy="1.16739122284923E-24"
+        ixz="-2.5771099278853E-23"
+        iyy="8.00240618361575E-08"
+        iyz="3.31263426977485E-23"
+        izz="7.84485504908246E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/servo_arm_F_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/servo_arm_F_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F_L_2"
+    type="revolute">
+    <origin
+      xyz="0.06205 0.02905 0.0204"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="shoulder_F_L" />
+    <child
+      link="servo_arm_F_L" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="calf_ctrl_link_1_F_L">
+    <inertial>
+      <origin
+        xyz="-0.018075 1.38777878078145E-17 0.000774877828140577"
+        rpy="0 0 0" />
+      <mass
+        value="0.00111225029871878" />
+      <inertia
+        ixx="5.72356644536731E-09"
+        ixy="1.42431891656477E-23"
+        ixz="-1.23663501576677E-22"
+        iyy="1.85407386292481E-07"
+        iyz="7.68745190348468E-25"
+        izz="1.8357729196152E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_1_F_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_1_F_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="servo_arm_to_calf_ctrl_link_1_F_L"
+    type="revolute">
+    <origin
+      xyz="0 0.00475 0.025"
+      rpy="0 0.9724 0" />
+    <parent
+      link="servo_arm_F_L" />
+    <child
+      link="calf_ctrl_link_1_F_L" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+     <mimic
+      joint="F_L_2"
+      multiplier="-1"
+      offset="0" />
+  </joint>
+  <link
+    name="calf_ctrl_b_F_L">
+    <inertial>
+      <origin
+        xyz="-4.85722573273506E-17 3.20640684062512E-05 0.00688666553553138"
+        rpy="0 0 0" />
+      <mass
+        value="0.00354028959618972" />
+      <inertia
+        ixx="3.45528486612269E-07"
+        ixy="-1.84808305160043E-22"
+        ixz="1.46369065700323E-20"
+        iyy="4.52480557794333E-07"
+        iyz="-3.32682143979103E-09"
+        izz="1.30553485579809E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_b_F_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_b_F_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder_to_calf_ctrl_b_F_L"
+    type="revolute">
+    <origin
+      xyz="0.0322 0.0523 0"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="shoulder_F_L" />
+    <child
+      link="calf_ctrl_b_F_L" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="F_L_2"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="calf_ctrl_link_2_F_L">
+    <inertial>
+      <origin
+        xyz="0.00111901337001399 2.09060393996374E-10 -0.0500778792496259"
+        rpy="0 0 0" />
+      <mass
+        value="0.00561911163130325" />
+      <inertia
+        ixx="5.89454562373125E-06"
+        ixy="6.73552520504852E-15"
+        ixz="6.42821435707171E-10"
+        iyy="5.75704319182989E-06"
+        iyz="-1.84959192503532E-15"
+        izz="1.70411118036785E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_2_F_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_2_F_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="calf_ctrl_b_to_link_2_F_L"
+    type="continuous">
+    <origin
+      xyz="0 -0.010003 0.025"
+      rpy="0 0.7854 0" />
+    <parent
+      link="calf_ctrl_b_F_L" />
+    <child
+      link="calf_ctrl_link_2_F_L" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="shoulder_F_R">
+    <inertial>
+      <origin
+        xyz="0.0467094731756891 -0.00398417940754411 0.00997767995559429"
+        rpy="0 0 0" />
+      <mass
+        value="0.11920530580515" />
+      <inertia
+        ixx="4.49016149267523E-05"
+        ixy="2.03939054156098E-08"
+        ixz="-3.45413247787102E-06"
+        iyy="4.39346233462038E-05"
+        iyz="3.31134798240669E-08"
+        izz="2.39882253835948E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/shoulder_F_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/shoulder_F_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F_R_3"
+    type="revolute">
+    <origin
+      xyz="0.04685 -0.05455 -5E-05"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="shoulder_F_R" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="thighs_F_R">
+    <inertial>
+      <origin
+        xyz="-0.0307867726045708 0.000461376972766436 0.0308053238078066"
+        rpy="0 0 0" />
+      <mass
+        value="0.0272931837872823" />
+      <inertia
+        ixx="1.40238518752997E-05"
+        ixy="-2.68316564692751E-07"
+        ixz="1.22583471675323E-05"
+        iyy="2.63265110795453E-05"
+        iyz="2.68519518042869E-07"
+        izz="1.39166609155692E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/thighs_F_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/thighs_F_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F_R_4"
+    type="revolute">
+    <origin
+      xyz="0.03225 -0.0423 0"
+      rpy="0 0 0" />
+    <parent
+      link="shoulder_F_R" />
+    <child
+      link="thighs_F_R" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="calf_F_R">
+    <inertial>
+      <origin
+        xyz="0.010140696002164 -5.12587645191687E-05 -0.0334060796979923"
+        rpy="0 0 0" />
+      <mass
+        value="0.0172535804143419" />
+      <inertia
+        ixx="1.77604626882643E-05"
+        ixy="-8.61702362435681E-09"
+        ixz="4.41637781537991E-06"
+        iyy="1.92140238297111E-05"
+        iyz="2.87032981478641E-08"
+        izz="1.71187663873301E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_F_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_F_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thighs_to_calf_F_R"
+    type="continuous">
+    <origin
+      xyz="-0.070711 0 0.070711"
+      rpy="0 1.5708 0" />
+    <parent
+      link="thighs_F_R" />
+    <child
+      link="calf_F_R" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="servo_arm_F_R">
+    <inertial>
+      <origin
+        xyz="-6.93889390390723E-18 2.77555756156289E-17 0.0105381418028457"
+        rpy="0 0 0" />
+      <mass
+        value="0.000975344106993152" />
+      <inertia
+        ixx="7.54540735330729E-08"
+        ixy="-1.08761864879061E-24"
+        ixz="5.12597524809289E-23"
+        iyy="8.00240618361578E-08"
+        iyz="-6.10438430796542E-23"
+        izz="7.84485504908247E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/servo_arm_F_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/servo_arm_F_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F_R_5"
+    type="revolute">
+    <origin
+      xyz="0.0621 -0.02905 0.0204"
+      rpy="0 1.5708 0" />
+    <parent
+      link="shoulder_F_R" />
+    <child
+      link="servo_arm_F_R" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="calf_ctrl_link_1_F_R">
+    <inertial>
+      <origin
+        xyz="-0.018075 -2.77555756156289E-17 0.000774877828140508"
+        rpy="0 0 0" />
+      <mass
+        value="0.00111225029871878" />
+      <inertia
+        ixx="5.72356644536755E-09"
+        ixy="-2.26003951040413E-23"
+        ixz="1.13737334226045E-23"
+        iyy="1.85407386292482E-07"
+        iyz="-2.02406696460792E-24"
+        izz="1.8357729196152E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_1_F_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_1_F_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="servo_arm_to_calf_ctrl_link_1_F_R"
+    type="revolute">
+    <origin
+      xyz="0 -0.00475 0.025"
+      rpy="0 -2.1734 0" />
+    <parent
+      link="servo_arm_F_R" />
+    <child
+      link="calf_ctrl_link_1_F_R" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="F_R_5"
+      multiplier="-1"
+      offset="0" />
+  </joint>
+  <link
+    name="calf_ctrl_b_F_R">
+    <inertial>
+      <origin
+        xyz="3.05311331771918E-16 -3.20640684061402E-05 0.00688666553553122"
+        rpy="0 0 0" />
+      <mass
+        value="0.00354028959618971" />
+      <inertia
+        ixx="3.45528486612264E-07"
+        ixy="-7.8896407257504E-24"
+        ixz="-6.91787917647197E-21"
+        iyy="4.52480557794311E-07"
+        iyz="3.32682143979124E-09"
+        izz="1.30553485579793E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_b_F_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_b_F_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder_to_calf_ctrl_b_F_R"
+    type="revolute">
+    <origin
+      xyz="0.03225 -0.0523 0"
+      rpy="0 1.5708 0" />
+    <parent
+      link="shoulder_F_R" />
+    <child
+      link="calf_ctrl_b_F_R" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="F_R_5"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="calf_ctrl_link_2_F_R">
+    <inertial>
+      <origin
+        xyz="0.0011190133700149 2.09061323808157E-10 -0.0500778792496255"
+        rpy="0 0 0" />
+      <mass
+        value="0.00561911163130325" />
+      <inertia
+        ixx="5.89454562373125E-06"
+        ixy="6.73552516750252E-15"
+        ixz="6.42821435709857E-10"
+        iyy="5.75704319182989E-06"
+        iyz="-1.84959266424862E-15"
+        izz="1.7041111803679E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_2_F_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_2_F_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="calf_ctrl_b_to_link_2_F_R"
+    type="continuous">
+    <origin
+      xyz="0 0.010227 0.025"
+      rpy="0 0.7854 0" />
+    <parent
+      link="calf_ctrl_b_F_R" />
+    <child
+      link="calf_ctrl_link_2_F_R" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="shoulder_B_L">
+    <inertial>
+      <origin
+        xyz="-0.0466815369109793 0.00398417944209506 0.00997768017568306"
+        rpy="0 0 0" />
+      <mass
+        value="0.119205302366461" />
+      <inertia
+        ixx="4.4901614342157E-05"
+        ixy="2.03938148595843E-08"
+        ixz="3.45413063891719E-06"
+        iyy="4.3934620230579E-05"
+        iyz="-3.31136750285268E-08"
+        izz="2.39882229480932E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/shoulder_B_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/shoulder_B_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B_L_6"
+    type="revolute">
+    <origin
+      xyz="-0.04685 0.05455 -5E-05"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="shoulder_B_L" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="thighs_B_L">
+    <inertial>
+      <origin
+        xyz="0.030786764690059 -0.000461376921627038 -0.0308053402205603"
+        rpy="0 0 0" />
+      <mass
+        value="0.0272931996215124" />
+      <inertia
+        ixx="1.40238498403544E-05"
+        ixy="-2.68315513164588E-07"
+        ixz="1.22583467619844E-05"
+        iyy="2.63265267810395E-05"
+        iyz="2.68517605812552E-07"
+        izz="1.39166805359863E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/thighs_B_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/thighs_B_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B_L_7"
+    type="revolute">
+    <origin
+      xyz="-0.06205 0.0423 0"
+      rpy="0 0 0" />
+    <parent
+      link="shoulder_B_L" />
+    <child
+      link="thighs_B_L" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="calf_B_L">
+    <inertial>
+      <origin
+        xyz="0.0101406960018602 5.12585711612001E-05 -0.0334060796974651"
+        rpy="0 0 0" />
+      <mass
+        value="0.0172535804140553" />
+      <inertia
+        ixx="1.77604626883045E-05"
+        ixy="8.6170837589074E-09"
+        ixz="4.41637781525641E-06"
+        iyy="1.92140238293725E-05"
+        iyz="-2.87034102494069E-08"
+        izz="1.71187663900993E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_B_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_B_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thighs_to_calf_B_L"
+    type="continuous">
+    <origin
+      xyz="0.070711 0 -0.070711"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="thighs_B_L" />
+    <child
+      link="calf_B_L" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="servo_arm_B_L">
+    <inertial>
+      <origin
+        xyz="3.46944695195361E-18 0 0.0105381418028457"
+        rpy="0 0 0" />
+      <mass
+        value="0.000975344106993152" />
+      <inertia
+        ixx="7.54540735330728E-08"
+        ixy="5.61001260621498E-24"
+        ixz="-2.51863031739294E-23"
+        iyy="8.00240618361577E-08"
+        iyz="-1.14098922559324E-23"
+        izz="7.84485504908248E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/servo_arm_B_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/servo_arm_B_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B_L_8"
+    type="revolute">
+    <origin
+      xyz="-0.0322 0.02905 0.0204"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="shoulder_B_L" />
+    <child
+      link="servo_arm_B_L" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="calf_ctrl_link_1_B_L">
+    <inertial>
+      <origin
+        xyz="-0.018075 0 0.000774877828140558"
+        rpy="0 0 0" />
+      <mass
+        value="0.00111225029871879" />
+      <inertia
+        ixx="5.72356644536615E-09"
+        ixy="7.05013356582078E-24"
+        ixz="4.1565825780791E-23"
+        iyy="1.85407386292481E-07"
+        iyz="-3.2917035161866E-24"
+        izz="1.8357729196152E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_1_B_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_1_B_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="servo_arm_to_calf_ctrl_link_1_B_L"
+    type="revolute">
+    <origin
+      xyz="0 0.00475 0.025"
+      rpy="0 0.9724 0" />
+    <parent
+      link="servo_arm_B_L" />
+    <child
+      link="calf_ctrl_link_1_B_L" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="B_L_8"
+      multiplier="-1"
+      offset="0" />
+  </joint>
+  <link
+    name="calf_ctrl_b_B_L">
+    <inertial>
+      <origin
+        xyz="-2.91433543964104E-16 3.20640684059459E-05 0.00688666553553139"
+        rpy="0 0 0" />
+      <mass
+        value="0.00354028959618972" />
+      <inertia
+        ixx="3.45528486612273E-07"
+        ixy="-8.92084761984018E-23"
+        ixz="7.73645208907431E-21"
+        iyy="4.52480557794327E-07"
+        iyz="-3.32682143979098E-09"
+        izz="1.30553485579799E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_b_B_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_b_B_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder_to_calf_ctrl_b_B_L"
+    type="revolute">
+    <origin
+      xyz="-0.06205 0.0523 0"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="shoulder_B_L" />
+    <child
+      link="calf_ctrl_b_B_L" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="B_L_8"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="calf_ctrl_link_2_B_L">
+    <inertial>
+      <origin
+        xyz="0.00111901337001398 2.09060407874162E-10 -0.0500778792496259"
+        rpy="0 0 0" />
+      <mass
+        value="0.00561911163130327" />
+      <inertia
+        ixx="5.89454562373127E-06"
+        ixy="6.73552536411969E-15"
+        ixz="6.42821435708838E-10"
+        iyy="5.75704319182991E-06"
+        iyz="-1.84959224942376E-15"
+        izz="1.70411118036791E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_2_B_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_2_B_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="calf_ctrl_b_to_link_2_B_L"
+    type="continuous">
+    <origin
+      xyz="0 -0.010003 0.025"
+      rpy="0 0.7854 0" />
+    <parent
+      link="calf_ctrl_b_B_L" />
+    <child
+      link="calf_ctrl_link_2_B_L" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="shoulder_B_R">
+    <inertial>
+      <origin
+        xyz="-0.0466959554589567 -0.00398419169544706 0.00997792116955153"
+        rpy="0 0 0" />
+      <mass
+        value="0.119203475597298" />
+      <inertia
+        ixx="4.49008618297834E-05"
+        ixy="-2.02803179924207E-08"
+        ixz="3.45414100329332E-06"
+        iyy="4.39339407938332E-05"
+        iyz="3.33912792525491E-08"
+        izz="2.39881877030711E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/shoulder_B_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/shoulder_B_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B_R_9"
+    type="revolute">
+    <origin
+      xyz="-0.04685 -0.05455 -5E-05"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="shoulder_B_R" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="thighs_B_R">
+    <inertial>
+      <origin
+        xyz="-0.0307867726053932 0.000461376972888131 0.0308053238073376"
+        rpy="0 0 0" />
+      <mass
+        value="0.0272931837886617" />
+      <inertia
+        ixx="1.40238538562877E-05"
+        ixy="-2.68316564541122E-07"
+        ixz="1.22583446631845E-05"
+        iyy="2.63265150394118E-05"
+        iyz="2.68519518066761E-07"
+        izz="1.39166628945209E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/thighs_B_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/thighs_B_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B_R_10"
+    type="revolute">
+    <origin
+      xyz="-0.06205 -0.0423 0"
+      rpy="0 0 0" />
+    <parent
+      link="shoulder_B_R" />
+    <child
+      link="thighs_B_R" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="calf_B_R">
+    <inertial>
+      <origin
+        xyz="0.0101406960021609 -5.12587645200985E-05 -0.0334060796979923"
+        rpy="0 0 0" />
+      <mass
+        value="0.0172535804143414" />
+      <inertia
+        ixx="1.77604626882642E-05"
+        ixy="-8.61702362435667E-09"
+        ixz="4.41637781538056E-06"
+        iyy="1.92140238297068E-05"
+        iyz="2.8703298147857E-08"
+        izz="1.71187663872884E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_B_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_B_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thighs_to_calf_B_R"
+    type="continuous">
+    <origin
+      xyz="-0.070711 0 0.070711"
+      rpy="0 1.5708 0" />
+    <parent
+      link="thighs_B_R" />
+    <child
+      link="calf_B_R" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="servo_arm_B_R">
+    <inertial>
+      <origin
+        xyz="-1.38777878078145E-17 -1.38777878078145E-17 0.0105381418028458"
+        rpy="0 0 0" />
+      <mass
+        value="0.000975344106993151" />
+      <inertia
+        ixx="7.54540735330726E-08"
+        ixy="-2.04783668548393E-26"
+        ixz="5.60770294174133E-23"
+        iyy="8.00240618361575E-08"
+        iyz="2.38073259914569E-23"
+        izz="7.84485504908246E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/servo_arm_B_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/servo_arm_B_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B_R_11"
+    type="revolute">
+    <origin
+      xyz="-0.03225 -0.02905 0.0204"
+      rpy="0 1.5708 0" />
+    <parent
+      link="shoulder_B_R" />
+    <child
+      link="servo_arm_B_R" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="calf_ctrl_link_1_B_R">
+    <inertial>
+      <origin
+        xyz="-0.018075 0 0.000774877828140549"
+        rpy="0 0 0" />
+      <mass
+        value="0.00111225029871878" />
+      <inertia
+        ixx="5.72356644536696E-09"
+        ixy="1.24626241397099E-23"
+        ixz="-2.48154183765846E-24"
+        iyy="1.8540738629248E-07"
+        iyz="2.02017107427188E-23"
+        izz="1.83577291961519E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_1_B_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_1_B_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="servo_arm_to_calf_ctrl_link_1_B_R"
+    type="revolute">
+    <origin
+      xyz="0 -0.00475 0.025"
+      rpy="0 -2.1734 0" />
+    <parent
+      link="servo_arm_B_R" />
+    <child
+      link="calf_ctrl_link_1_B_R" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="B_R_11"
+      multiplier="-1"
+      offset="0" />
+  </joint>
+  <link
+    name="calf_ctrl_b_B_R">
+    <inertial>
+      <origin
+        xyz="0 -3.20640684061957E-05 0.00688666553553131"
+        rpy="0 0 0" />
+      <mass
+        value="0.00354028959618971" />
+      <inertia
+        ixx="3.45528486612257E-07"
+        ixy="1.95488982426395E-22"
+        ixz="-1.76968389214613E-20"
+        iyy="4.52480557794315E-07"
+        iyz="3.32682143979103E-09"
+        izz="1.30553485579803E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_b_B_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_b_B_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder_to_calf_ctrl_b_B_R"
+    type="revolute">
+    <origin
+      xyz="-0.06205 -0.0523 0"
+      rpy="0 1.5708 0" />
+    <parent
+      link="shoulder_B_R" />
+    <child
+      link="calf_ctrl_b_B_R" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="B_R_11"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="calf_ctrl_link_2_B_R">
+    <inertial>
+      <origin
+        xyz="0.00111901337001404 2.09060407874162E-10 -0.050077879249626"
+        rpy="0 0 0" />
+      <mass
+        value="0.00561911163130324" />
+      <inertia
+        ixx="5.89454562373123E-06"
+        ixy="6.73552512083439E-15"
+        ixz="6.42821435710546E-10"
+        iyy="5.75704319182986E-06"
+        iyz="-1.84959263472647E-15"
+        izz="1.70411118036771E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_2_B_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vettar_description/meshes/calf_ctrl_link_2_B_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="calf_ctrl_b_to_link_2_B_R"
+    type="continuous">
+    <origin
+      xyz="0 0.010227 0.025"
+      rpy="0 0.7854 0" />
+    <parent
+      link="calf_ctrl_b_B_R" />
+    <child
+      link="calf_ctrl_link_2_B_R" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+
+
+  <!-- ros2_control 매크로 정의 -->
+  <xacro:macro name="joint_ros2_control" params="joint_name">
+    <joint name="${joint_name}">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+    </joint>
+  </xacro:macro>
+
+  <ros2_control name="VettarSystem" type="system">
+    <hardware>
+      <xacro:if value="$(arg simulation_mode)">
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </xacro:if>
+      <xacro:unless value="$(arg simulation_mode)">
+        <plugin>vettar_interface/VettarHardwareInterface</plugin>
+      </xacro:unless>
+      <param name="simulation_mode">$(arg simulation_mode)</param>
+    </hardware>
+    
+    <xacro:joint_ros2_control joint_name="F_L_0"/>
+    <xacro:joint_ros2_control joint_name="F_L_1"/>
+    <xacro:joint_ros2_control joint_name="F_L_2"/>
+    <xacro:joint_ros2_control joint_name="F_R_3"/>
+    <xacro:joint_ros2_control joint_name="F_R_4"/>
+    <xacro:joint_ros2_control joint_name="F_R_5"/>
+    <xacro:joint_ros2_control joint_name="B_L_6"/>
+    <xacro:joint_ros2_control joint_name="B_L_7"/>
+    <xacro:joint_ros2_control joint_name="B_L_8"/>
+    <xacro:joint_ros2_control joint_name="B_R_9"/>
+    <xacro:joint_ros2_control joint_name="B_R_10"/>
+    <xacro:joint_ros2_control joint_name="B_R_11"/>
+  </ros2_control>
+
+
+</robot>

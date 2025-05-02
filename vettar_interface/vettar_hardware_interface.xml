@@ -1,0 +1,7 @@
+<library path="vettar_interface">
+  <class name="vettar_interface/VettarHardwareInterface"
+         type="vettar_interface::VettarHardwareInterface"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>Hardware Interface for Vettar robot.</description>
+  </class>
+</library>

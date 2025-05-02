@@ -1,0 +1,42 @@
+# servo_pulses.yaml
+pca9685:
+  reference_clock_speed: 26730496 # default 25000000
+  servo_hz: 200
+
+servo_pulses:
+  "0": 
+    min: 500
+    max: 2500
+  "1": 
+    min: 500
+    max: 2500
+  "2": 
+    min: 500
+    max: 2500
+  "3": 
+    min: 500
+    max: 2500
+  "4": 
+    min: 500
+    max: 2500
+  "5": 
+    min: 500
+    max: 2500
+  "6": 
+    min: 2500
+    max: 500
+  "7": 
+    min: 500
+    max: 2500
+  "8": 
+    min: 500
+    max: 2500
+  "9": 
+    min: 500
+    max: 2500
+  "10": 
+    min: 500
+    max: 2500
+  "11": 
+    min: 2500
+    max: 500
